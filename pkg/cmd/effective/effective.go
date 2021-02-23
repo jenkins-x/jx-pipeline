@@ -1,6 +1,7 @@
 package effective
 
 import (
+	"fmt"
 	"io/ioutil"
 	"os"
 	"path/filepath"
@@ -321,7 +322,7 @@ func (o *Options) displayPipeline(trigger *Trigger, name string, pipeline *tekto
 	}
 
 	log.Logger().Infof("trigger %s pipeline %s", info(trigger.Path), info(name))
-	log.Logger().Infof(string(data))
+	fmt.Print(string(data))
 	return nil
 }
 
