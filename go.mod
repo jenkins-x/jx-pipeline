@@ -1,7 +1,7 @@
 module github.com/jenkins-x-plugins/jx-pipeline
 
 require (
-	github.com/GoogleContainerTools/kpt v0.37.1
+	github.com/GoogleContainerTools/kpt v0.39.0
 	github.com/cenkalti/backoff v2.2.1+incompatible
 	github.com/charmbracelet/bubbletea v0.13.1
 	github.com/cpuguy83/go-md2man v1.0.10
