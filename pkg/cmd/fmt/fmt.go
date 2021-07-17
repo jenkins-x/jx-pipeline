@@ -214,6 +214,7 @@ func (o *Options) processPipelineRun(prs *v1beta1.PipelineRun, path string) erro
 }
 
 func (o *Options) processPipelineSpec(spec *v1beta1.PipelineSpec, path string) error {
+	var ss *corev1.Container
 	spec.Params = RemoveDefaultParamSpecs(spec.Params)
 	for i := range spec.Tasks {
 		task := &spec.Tasks[i]
@@ -231,7 +232,9 @@ func (o *Options) processPipelineSpec(spec *v1beta1.PipelineSpec, path string) e
 			}
 			ts.Steps = steps
 		}
-		ss := ts.StepTemplate
+		if ts != nil {
+			ss = ts.StepTemplate
+		}
 		if ss != nil {
 			ss.Env = RemoveDefaultEnvVars(ss.Env)
 		}
